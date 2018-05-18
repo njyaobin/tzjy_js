@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <style type="text/css">
+	*{
+		margin:0;
+		padding:0;
+		list-style-type:0;
+	}
+	div{
+		width:500px;
+		height:200px;
+		margin:50px auto 0;
+		font-size:0;
+	}
+	div > span{
+		display:inline-block;
+		width:50px;
+		height:20px;
+		line-height:20px;
+		margin-right:10px;
+		text-align:right;
+		font-size:14px;
+		vertical-align:bottom;
+	}
+	div > p{
+		display:inline-block;
+		width:200px;
+		height:60px;		
+		margin-left:10px;
+		vertical-align:bottom;
+		border:1px solid #ccc;
+	}
+	div li{
+		display:inline-block;
+		width:20px;
+		height:20px;
+		vertical-align:bottom;
+		background:url(images/star.png) no-repeat 0 0;
+	}
+	div > ul{
+		display:inline-block;
+		width:100px;
+		height:20px;
+	}
+	.on{
+		background-position:0 -28px;
+	}
+
+  </style>
+ </head>
+ <body>
+  <div id="box">
+	<span>评论:</span>
+	<ul>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+	<p></p>
+  </div>
+  <script type="text/javascript">
+  //第一步，鼠标移动到li上后，左边显示星星；
+  var oLi = document.getElementsByTagName("li"),
+	  oUl = document.getElementsByTagName("ul")[0],
+      length = oLi.length,
+	  score = -1;
+
+	  for(var i = 0; i < length; i++){
+		  oLi[i].index = i;
+		  oLi[i].onmouseenter = function(){		  
+			  star(this.index); 
+		  }
+		  
+
+		 oUl.onmouseleave = function(){			
+			star(score);
+		}
+
+		  oLi[i].onclick = function(){
+			  score = this.index;
+		  }		  
+	  }
+
+	  function star(x){
+		  for(var j = 0 ; j <= x; j++)
+		  {		
+			  oLi[j].className = "on";
+		  }
+			
+		  for(var k = x + 1 ; k < length; k++)
+		  {
+
+			  oLi[k].className = "";
+
+		  }
+
+
+
+	  }
+  </script>
+ </body>
+</html>
